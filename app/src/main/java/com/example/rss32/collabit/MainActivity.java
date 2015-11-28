@@ -1,9 +1,13 @@
 package com.example.rss32.collabit;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +20,9 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
 
+import com.parse.Parse;
+import com.parse.ParseInstallation;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,21 +34,25 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         Button create = (Button) findViewById(R.id.createbutton);
+
         Button join = (Button) findViewById(R.id.joinbutton2);
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TeamA.class);
+                Intent intent = new Intent(MainActivity.this,Create.class);
                 startActivity(intent);
             }
         });
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,TeamA.class);
+                Intent intent = new Intent(MainActivity.this,Join.class);
                 startActivity(intent);
             }
         });
+
+//        Parse.initialize(this, "N07UKi2mm7O4AflidI2jnd2BqWTdDUe6PTxQQnBf", "lYVpsiwfu7WJNXrICw5tmh0MtIXfJ4ekXSi7hryd");
+//        ParseInstallation.getCurrentInstallation().saveInBackground();
 
 
 
@@ -75,12 +86,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -127,4 +138,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

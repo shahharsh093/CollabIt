@@ -1,6 +1,8 @@
 package com.example.rss32.collabit;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,12 +27,31 @@ public class TeamB extends Activity {
         submitAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TeamB.this,"Submitted Answers.Generating Report",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(TeamB.this,Report.class);
-                startActivity(intent);
-                finish();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(TeamB.this);
+                alertDialogBuilder.setMessage("Team A and Team B have finished answering the questions. Do you want to see the results ?");
+                alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+//                        Toast.makeText(TeamB.this, "You clicked yes button", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(TeamB.this,Report.class);
+                        startActivity(intent);
+                        finish();
 
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(TeamB.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
         });
-    }
+
+            }
+
 }

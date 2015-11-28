@@ -2,24 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage"
     >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Team B"
+        android:textColor="#ffff"
+        android:text="Team B - Answer Questions Sent By Team A"
         android:id="@+id/tbTV" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/radioGroup"
+
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffff"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Question 1"
             android:id="@+id/q1TV" />
@@ -47,6 +51,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#ffff"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Question 2"
             android:id="@+id/q1TV2" />
@@ -67,6 +72,9 @@
     </RadioGroup>
 
     <Button
+        android:background="@color/buttonColor"
+
+        android:textColor="#ffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SUBMIT ANSWERS"
